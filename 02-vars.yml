@@ -56,7 +56,7 @@
 # -u is used for user name
 #  -k is used for password\
 
-- name: facts
+- name: Register Variables
   hosts: localhost
   tasks:
     - name: Run time command
@@ -65,3 +65,17 @@
     - name: Output
       ansible.builtin.debug:
         msg: "{{ Output }}"
+
+# register: : this keyword is a part of runtime variables.
+
+- name: Store variables in a standard name
+  hosts: localhost
+  tasks:
+    - name: store variables using set fact
+      ansible.builtin.set_fact:
+      UPTIME: "{{Output.stdout}}"
+
+    - name: Print out a shell command
+      ansible.builtin.debug:
+        msg: "{{UPTIME}}"
+# ansible.builtin.set_fact: : this keyword is a part of runtime variables.
