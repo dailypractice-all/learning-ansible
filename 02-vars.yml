@@ -7,6 +7,9 @@
       ansible.builtin.debug:
         msg: URL = {{ URL }}
 
+# vars: this keyword is used for play level variables
+# tasks: this keyword is used for task level variables and this is to be written to print some url or some msg
+
 - name: Vars from files
   hosts: localhost
   vars_files:
@@ -15,6 +18,8 @@
     - name: Print URL
       ansible.builtin.debug:
          msg: URL = {{ URL }}
+
+# vars_files: this keyword is used for variables from a file
 
 - name: Vars from tasks
   hosts: localhost
@@ -32,6 +37,8 @@
       ansible.builtin.debug:
         msg: URL = {{ URL }}
 
+# name: Vars from Inventory : this keyword is used for Inventory file variables
+
 - name: facts
   hosts: localhost
   tasks:
@@ -41,4 +48,20 @@
     - name: print FQDN
       ansible.builtin.debug:
         msg: "{{ ansible_fqdn }}"
+
 # if any value starts with a variable then we need to quote it, Either single or double quote
+# command line variables are the variables which we can passout the command by using -e command
+# -i is used for inventory
+# all is used for all the ip address written in inventory
+# -u is used for user name
+#  -k is used for password\
+
+- name: facts
+  hosts: localhost
+  tasks:
+    -name: Run time command
+    ansible.builtin.shell: uptime
+    register: Output
+  - name: Output
+    ansible.builtin.debug:
+      msg: "{{ Output }}"
