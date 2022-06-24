@@ -59,9 +59,9 @@
 - name: facts
   hosts: localhost
   tasks:
-    -name: Run time command
+    - name: Run time command
     ansible.builtin.shell: uptime
     register: Output
-  - name: Output
+    - name: Output
     ansible.builtin.debug:
       msg: "{{ Output }}"
