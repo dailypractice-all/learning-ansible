@@ -35,7 +35,7 @@
 - name: facts
   hosts: localhost
   tasks:
-    - name:Print Hostname
+    - name: Print Hostname
       ansible.builtin.debug:
         msg: Host name = {{ansible_hostname}}, Memory = {{ ansible_memory_mb.real.free.total }}
     - name: print FQDN
