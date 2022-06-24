@@ -60,8 +60,8 @@
   hosts: localhost
   tasks:
     - name: Run time command
-    ansible.builtin.shell: uptime
-    register: Output
+      ansible.builtin.shell: uptime
+      register: Output
     - name: Output
-    ansible.builtin.debug:
-      msg: "{{ Output }}"
+      ansible.builtin.debug:
+        msg: "{{ Output }}"
