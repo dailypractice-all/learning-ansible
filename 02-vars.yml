@@ -73,7 +73,7 @@
   tasks:
     - name: store variables using set fact
       ansible.builtin.set_fact:
-      UPTIME: "{{Output.stdout}}"
+        UPTIME: "{{Output.stdout}}"
 
     - name: Print out a shell command
       ansible.builtin.debug:
