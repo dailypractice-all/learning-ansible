@@ -31,3 +31,13 @@
     - name: Print URL
       ansible.builtin.debug:
         msg: URL = {{ URL }}
+
+- name: facts
+  hosts: localhost
+  tasks:
+    - name:Print Hostname
+      ansible.builtin.debug:
+        msg: Host name = {{ansible_hostname}}, Memory = {{ ansible_memory_mb.real.free.total }}
+    - name: print FQDN
+      ansible.builtin.debug:
+        msg: {{ ansible_fqdn }}
