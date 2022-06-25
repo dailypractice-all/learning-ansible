@@ -4,6 +4,6 @@
     - name: Loop Example
       debug:
         msg: Fruit = {{item}}
-      loops:
+      loop:
         - apple
         - banana
