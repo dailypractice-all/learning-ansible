@@ -7,3 +7,9 @@
       loop:
         - apple
         - banana
+    - name: Loop Example with map
+      debug:
+        msg: Fruit name = {{item.name}}, Quantity = {{item.quantity}}
+      loop:
+        - {name: apple, quantity: 59}
+        - {name: banana, quantity: 69}
