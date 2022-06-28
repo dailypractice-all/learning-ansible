@@ -13,3 +13,10 @@
       loop:
         - {name: apple, quantity: 59}
         - {name: banana, quantity: 69}
+
+- name: Print
+  hosts: localhost
+  tasks:
+    - name: Print
+      debug:
+        msg: "{{app_user}}"
